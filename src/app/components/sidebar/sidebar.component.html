@@ -1,0 +1,15 @@
+<div class="logo">
+    <img style="width: 165px" src="/assets/img/Logo.svg"/>
+    <span style="font-size: 30px">Gestion du Stock</span>
+</div>
+<div class="sidebar-wrapper">
+  
+    <ul class="nav">
+
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a class="nav-link" [routerLink]="[menuItem.path]">
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+    </ul>
+</div>

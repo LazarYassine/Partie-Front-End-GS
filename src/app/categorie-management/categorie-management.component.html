@@ -1,0 +1,60 @@
+<div class="main-content">
+    <div class="container-fluid">
+  
+        <div class="row" >
+            <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                    <input [(ngModel)]="myCategory.categoryName"  matInput placeholder="Categorie Name">
+                </mat-form-field>
+            </div>
+        
+            <div class="col-md-6">
+                <button *ngIf="!EditForm" (click)="addCategory()" mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter une Categorie</button>
+                <button *ngIf="EditForm"(click)="editCategory(myCategory)" mat-raised-button type="submit" class="btn btn-warning pull-right">Modifier une Categorie</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title mt-0"> Gestion Categorie</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                <th class="col-md-4">
+                                    Id
+                                </th>
+                                <th class="col-md-4">
+                                    Nom du Categorie
+                                </th>
+                                <th class="col-md-4">
+                                    Modifier/Supprimer
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let cate of Categories" >
+                                    <td>
+                                       {{ cate.id }}
+                                    </td>
+                                    <td>
+                                        {{ cate.categoryName}}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <button (click) = "editFormUser(cate)" class="btn btn-warning shadow btn-xs sharp me-1"><span class="bi bi-pencil-square"></span></button>
+                                            <button (click)="deleteCategory(cate)" class="btn btn-danger shadow btn-xs sharp"><span class="bi bi-trash"></span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </div>

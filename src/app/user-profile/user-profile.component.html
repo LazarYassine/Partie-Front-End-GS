@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container-fluid">
+
+      <div class="row">
+          <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="myUser.login" matInput placeholder="Username">
+              </mat-form-field>
+          </div>
+          <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                  <input [(ngModel)]="myUser.password" matInput placeholder="Password">
+              </mat-form-field>
+          </div>
+          <div class="col-md-3">
+              <button *ngIf="!EditForm" (click) = "addUser()" mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter un utilisateur</button>
+              <button *ngIf="EditForm" (click) = "editUser(myUser)"  mat-raised-button type="submit" class="btn btn-warning pull-right">Modifier un utilisateur</button>
+          </div>
+      </div>
+        {{ myUser | json }}
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-plain">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title mt-0"> Gestion utilisateur</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead class="">
+                              <th class="col-md-4">
+                                  Name
+                              </th>
+                              <th class="col-md-4">
+                                  Password
+                              </th>
+                              <th class="col-md-4">
+                                  Edit/Delete
+                              </th>
+                              </thead>
+                              <tbody>
+                              <tr *ngFor="let user of users" >
+                                  <td>
+                                      {{ user.login }}
+                                  </td>
+                                  <td>
+                                      {{ user.password }}
+                                  </td>
+                                  <td>
+                                      <div class="d-flex">
+                                          <button (click) = "editFormUser(user)"  class="btn btn-warning shadow btn-xs sharp me-1"><span class="bi bi-pencil-square"></span></button>
+                                          <button (click) = "deleteuser(user)" class="btn btn-danger shadow btn-xs sharp"><span class="bi bi-trash"></span></button>
+                                      </div>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

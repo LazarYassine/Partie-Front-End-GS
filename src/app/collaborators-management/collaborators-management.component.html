@@ -1,0 +1,110 @@
+<div class="main-content">
+    <div class="container-fluid">
+  
+        <div class="row" >
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="myCollaborateur.nomCollaborateur"  matInput placeholder="Nom du Collaborateur">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="myCollaborateur.prenomCollaborateur"  matInput placeholder="Prenom du Collaborateur">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input  [(ngModel)]="myCollaborateur.adresse"  matInput placeholder="Adresse">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="myCollaborateur.pays"  matInput placeholder="Pays">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="myCollaborateur.ville"  matInput placeholder="Ville">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width">
+                        <input [(ngModel)]="myCollaborateur.telCollaborateur"  matInput placeholder="Telephone">
+                    </mat-form-field>
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button *ngIf="!EditForm" (click)="addCollaborateur()" mat-raised-button type="submit" class="btn btn-danger pull-right">Ajouter une Categorie</button>
+                <button *ngIf="EditForm" (click)="editCollaborateur(myCollaborateur)" mat-raised-button type="submit" class="btn btn-warning pull-right">Modifier une Categorie</button>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title mt-0"> Gestion Collaborateur</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="">
+                                <th  class="col-lg-1 col-md-3">
+                                    Nom du Collaborateur
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Prenom du Collaborateur
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Adresse
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Pays
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Ville
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Telephone
+                                </th>
+                                <th  class="col-lg-1 col-md-3">
+                                    Modifier/Supprimer
+                                </th>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor=" let collaborateur of Collaborateurs " >
+                                    <td>
+                                       {{ collaborateur.nomCollaborateur }}
+                                    </td>
+                                    <td>
+                                        {{ collaborateur.prenomCollaborateur }}
+                                    </td>
+                                    <td>
+                                        {{ collaborateur.adresse }}
+                                    </td>
+                                    <td>
+                                        {{ collaborateur.pays }}
+                                    </td>
+                                    <td>
+                                        {{ collaborateur.ville }}
+                                    </td>
+                                    <td>
+                                        {{ collaborateur.telCollaborateur }}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <button (click)="editFormUser(collaborateur)" class="btn btn-warning shadow btn-xs sharp me-1"><span class="bi bi-pencil-square"></span></button>
+                                            <button (click)="deleteCollaborateur(collaborateur)" class="btn btn-danger shadow btn-xs sharp"><span class="bi bi-trash"></span></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
